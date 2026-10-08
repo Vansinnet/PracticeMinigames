@@ -1,3 +1,4 @@
+---@class PracticeMinigamesMod
 local mod = get_mod("PracticeMinigames")
 local MinigameSettings = require("scripts/settings/minigame/minigame_settings")
 
@@ -41,6 +42,7 @@ local function play_sound(alias)
     end
 end
 
+---@class PracticeMinigameBase
 local Base = {}
 Base.__index = Base
 
@@ -122,6 +124,7 @@ function Base:play_sound(alias)
     play_sound(alias)
 end
 
+---@class PracticeDecodeSymbols: PracticeMinigameBase
 local DecodeSymbols = setmetatable({}, { __index = Base })
 DecodeSymbols.__index = DecodeSymbols
 
@@ -152,6 +155,7 @@ function DecodeSymbols:new()
         previous = target
     end
 
+    ---@class PracticeDecodeSymbols
     local game = setmetatable({
         _decode_symbols_items_per_stage = items_per_stage,
         _decode_symbols_sweep_duration = MinigameSettings.decode_symbols_sweep_duration,
@@ -221,6 +225,7 @@ function DecodeSymbols:on_action_pressed(t)
     end
 end
 
+---@class PracticeDecodeSearch: PracticeMinigameBase
 local DecodeSearch = setmetatable({}, { __index = Base })
 DecodeSearch.__index = DecodeSearch
 
@@ -275,6 +280,7 @@ function DecodeSearch:new()
         last_x, last_y = x, y
     end
 
+    ---@class PracticeDecodeSearch
     local game = setmetatable({
         _cursor_position = { x = math.floor(SEARCH_WIDTH / 2), y = math.floor(SEARCH_HEIGHT / 2) },
         _decode_targets = targets,
@@ -390,6 +396,7 @@ function DecodeSearch:uses_joystick()
     return true
 end
 
+---@class PracticeDrill: PracticeMinigameBase
 local Drill = setmetatable({}, { __index = Base })
 Drill.__index = Drill
 
@@ -446,6 +453,7 @@ end
 
 function Drill:new()
     local targets, correct = drill_targets()
+    ---@class PracticeDrill
     local game = setmetatable({
         _correct_targets = correct,
         _cursor_position = { x = 0, y = 0 },
@@ -581,6 +589,7 @@ function Drill:uses_joystick()
     return true
 end
 
+---@class PracticeFrequency: PracticeMinigameBase
 local Frequency = setmetatable({}, { __index = Base })
 Frequency.__index = Frequency
 
@@ -605,6 +614,7 @@ end
 
 function Frequency:new()
     local frequency, target = frequency_pair()
+    ---@class PracticeFrequency
     local game = setmetatable({
         _frequency = frequency,
         _last_axis_set = nil,
@@ -696,10 +706,12 @@ function Frequency:on_action_pressed()
     end
 end
 
+---@class PracticeBalance: PracticeMinigameBase
 local Balance = setmetatable({}, { __index = Base })
 Balance.__index = Balance
 
 function Balance:new()
+    ---@class PracticeBalance
     local game = setmetatable({
         _disrupt_timer = 0,
         _is_stuck_indication = false,

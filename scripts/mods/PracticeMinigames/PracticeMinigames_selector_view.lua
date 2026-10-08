@@ -1,3 +1,4 @@
+---@class PracticeMinigamesMod
 local mod = get_mod("PracticeMinigames")
 local UIWidget = require("scripts/managers/ui/ui_widget")
 local UIWorkspaceSettings = require("scripts/settings/ui/ui_workspace_settings")

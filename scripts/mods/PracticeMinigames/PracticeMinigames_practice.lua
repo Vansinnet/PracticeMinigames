@@ -1,3 +1,4 @@
+---@class PracticeMinigamesMod
 local mod = get_mod("PracticeMinigames")
 
 local PRACTICE_VIEW = "practice_minigames_view"

@@ -1,3 +1,4 @@
+---@class PracticeMinigamesMod
 local mod = get_mod("PracticeMinigames")
 
 return {

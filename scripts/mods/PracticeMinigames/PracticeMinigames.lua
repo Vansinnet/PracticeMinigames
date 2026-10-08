@@ -1,3 +1,4 @@
+---@class PracticeMinigamesMod: DMFMod
 local mod = get_mod("PracticeMinigames")
 
 local mod_dir = "PracticeMinigames/scripts/mods/PracticeMinigames/"
